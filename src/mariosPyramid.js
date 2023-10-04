@@ -1,5 +1,5 @@
 function makeMariosPyramid(height) {
-  let pyramid = [];
+  const pyramid = [];
   for (let i = 0; i < height; i++) {
     let row = '';
     let mirror = '';
@@ -16,9 +16,11 @@ function makeMariosPyramid(height) {
       mirror += row[x];
     }
 
-    let compliteRow = row + '  ' + mirror;
+    const completedRow = row + '  ' + mirror;
 
-    pyramid.push(compliteRow);
+    pyramid.push(completedRow);
   }
   return pyramid;
 }
+
+makeMariosPyramid(8);
