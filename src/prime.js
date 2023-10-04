@@ -15,7 +15,7 @@ function isPrime(num) {
 }
 
 function showPrime(min, max) {
-  let primes = [];
+  const primes = [];
   for (let i = min; i <= max; i++) {
     if (isPrime(i)) {
       primes.push(i);
