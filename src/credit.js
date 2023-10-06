@@ -1,19 +1,17 @@
-function isCreditCardValid() {
-  const creditNumber = prompt('Type your credit card number:');
+const determineCardService = (card) => {
   let service = '';
-  let valid = '';
-
-  if (creditNumber[0] === '4') {
+  if (card[0] === '4') {
     service = 'VISA';
-  } else if (
-    creditNumber[0] === '5' &&
-    ['1', '2', '3', '4', '5'].includes(creditNumber[1])
-  ) {
+  } else if (card[0] === '5' && ['1', '2', '3', '4', '5'].includes(card[1])) {
     service = 'MasterCard';
-  } else if (creditNumber[0] === '3' && ['4', '7'].includes(creditNumber[1])) {
+  } else if (card[0] === '3' && ['4', '7'].includes(card[1])) {
     service = 'American Express';
   }
+  return service;
+};
 
+function isCreditCardValid() {
+  const creditNumber = prompt('Type your credit card number:');
   const firstPartOfSum = [];
   const secondPartOfSum = [];
 
@@ -34,8 +32,8 @@ function isCreditCardValid() {
     return acc + parseInt(currVal);
   }, 0);
 
-  valid = totalSum % 10 === 0 ? 'valid' : 'invalid';
-  alert(`Your ${service} card is ${valid}`);
+  const valid = totalSum % 10 === 0 ? 'valid' : 'invalid';
+  alert(`Your ${determineCardService(creditNumber)} card is ${valid}`);
 }
 
 isCreditCardValid();
