@@ -1,4 +1,8 @@
-function makeMariosPyramid(height) {
+function makeMariosPyramid() {
+  let height = 0;
+  while (height < 1 || height > 8) {
+    height = +prompt('Type height between 1 and 8: ');
+  }
   const pyramid = [];
   for (let i = 0; i < height; i++) {
     let row = '';
@@ -23,4 +27,4 @@ function makeMariosPyramid(height) {
   return pyramid;
 }
 
-makeMariosPyramid(8);
+makeMariosPyramid();
