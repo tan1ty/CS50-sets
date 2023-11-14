@@ -22,7 +22,7 @@ function countWords(text) {
   return wordsCounter;
 }
 
-function countSentence(text) {
+function countSentences(text) {
   let sentencesCounter = 0;
   for (let i = 0; i < text.length; i++) {
     if (text[i] === '.' || text[i] === '!' || text[i] === '?') {
@@ -36,7 +36,7 @@ function countReadability() {
   const text = getText();
   const letters = countLetters(text);
   const words = countWords(text);
-  const sentences = countSentence(text);
+  const sentences = countSentences(text);
 
   const L = (letters / words) * 100;
   const S = (sentences / words) * 100;
