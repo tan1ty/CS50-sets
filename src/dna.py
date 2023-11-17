@@ -2,8 +2,7 @@ import csv
 import sys
 
 
-def main(): 
-    
+def main():     
     try:
         if len(sys.argv) < 3:
             raise ValueError("You missed some file")
