@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <title>Trivia!</title>
+    <script>
+      function changeColor(clickedButton) {
+        let correctButton = document.getElementById('correct');
+        let incorrectButtons = document.getElementsByClassName('wrong');
+        let messege = document.getElementById('sheep');
+
+        if (clickedButton.id == 'correct') {
+          correctButton.className = 'correct';
+          messege.textContent = 'Correct!';
+        } else {
+          clickedButton.className = 'incorrect';
+          messege.textContent = 'Incorrect!';
+        }
+      }
+
+      function checkAnswer() {
+        let messege = document.getElementById('pig');
+        let input = document.getElementById('userAnswer');
+        if (input.value.toLowerCase() == 'switzerland') {
+          input.className = 'correct';
+          messege.textContent = 'Correct!';
+        } else {
+          input.className = 'incorrect';
+          messege.textContent = 'Incorrect!';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <h2>Part 1: Multiple Choice</h2>
+        <hr />
+        <h3>What is the approximate ratio of people to sheep in New Zeland?</h3>
+        <h4 id="sheep"></h4>
+        <form>
+          <button type="button" class="wrong" onclick="changeColor(this)">
+            1 people per 1 sheep
+          </button>
+          <button type="button" class="wrong" onclick="changeColor(this)">
+            1 people per 3 sheep
+          </button>
+          <button
+            type="button"
+            id="correct"
+            class=""
+            onclick="changeColor(this)"
+          >
+            1 people per 6 sheep
+          </button>
+        </form>
+      </div>
+
+      <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <hr />
+        <h3>
+          In whicn country is it illegal to have only one guinea pig, as a lone
+          guinea pig might get lonely?
+        </h3>
+        <h4 id="pig"></h4>
+        <form>
+          <input
+            type="text"
+            id="userAnswer"
+            name="answer"
+            placeholder="Type your answer"
+          />
+          <button type="button" onclick="checkAnswer()">Check Answer</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
